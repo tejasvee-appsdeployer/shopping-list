@@ -108,14 +108,7 @@ const data = [
 
 function App() {
 	const [todolist, setTodolist] = useState(data);
-	const handleToggle = (id) => {
-		let mapped = todolist.map((task) => {
-			return task.id === id
-				? { ...task, complete: !task.complete }
-				: { ...task };
-		});
-		setTodolist(mapped);
-	};
+
 	return (
 		<div className="App">
 			<Header />
