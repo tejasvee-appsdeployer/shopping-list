@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./components/Header";
 import { useState } from "react";
 import ToDoList from "./components/ToDoList";
+import TodoForm from "./components/TodoForm";
 
 const data = [
 	{
@@ -117,6 +118,7 @@ function App() {
 		});
 		setTodolist(mapped);
 	};
+
 	const handleFilter = (id) => {
 		let filtered = todolist.filter((task) => {
 			return !task.complete;
@@ -124,10 +126,21 @@ function App() {
 		setTodolist(filtered);
 	};
 
+	const addTask = (userInput) => {
+		let copy = [...todolist];
+		copy.push({ id: todolist.length + 1, task: userInput, complete: false });
+		setTodolist(copy);
+	};
+
 	return (
 		<div className="App">
 			<Header />
-			<ToDoList list={todolist} handleFilter={handleFilter} handleToggle />
+			<TodoForm addTask={addTask} />
+			<ToDoList
+				list={todolist}
+				handleFilter={handleFilter}
+				handleToggle={handleToggle}
+			/>
 		</div>
 	);
 }

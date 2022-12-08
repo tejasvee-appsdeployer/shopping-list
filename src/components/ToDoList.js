@@ -1,3 +1,4 @@
+import React from "react";
 import ToDo from "./ToDo";
 
 const ToDoList = ({ list, handleToggle, handleFilter }) => {
@@ -6,6 +7,7 @@ const ToDoList = ({ list, handleToggle, handleFilter }) => {
 			{list.map((todo) => {
 				return (
 					<ToDo
+						key={todo.id + todo.name}
 						todo={todo}
 						handleToggle={handleToggle}
 						handleFilter={handleFilter}
