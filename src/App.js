@@ -112,7 +112,7 @@ function App() {
 
 	const handleToggle = (id) => {
 		let mapped = todolist.map((task) => {
-			return task.id === id
+			return task.id == id
 				? { ...task, complete: !task.complete }
 				: { ...task };
 		});
