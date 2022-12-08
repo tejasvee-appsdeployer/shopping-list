@@ -13,8 +13,10 @@ const ToDo = ({ index, todo, handleToggle, handleFilter }) => {
 			name="todo"
 			onClick={handleClick}
 		>
-			{index + 1}
-			{". "} {todo.task}
+			<div>
+				{index + 1}
+				{". "} {todo.task}
+			</div>
 		</div>
 	);
 };

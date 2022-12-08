@@ -1,8 +1,11 @@
 import React from "react";
-const Header = () => {
+const Header = ({ heading }) => {
 	return (
 		<header>
-			<h1>Current Shopping List</h1>
+			<h1>
+				{heading} <br />
+				Shopping List
+			</h1>
 		</header>
 	);
 };
