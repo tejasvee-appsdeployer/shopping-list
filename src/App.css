@@ -9,6 +9,9 @@
 
 .list-view > div {
 	margin: 20px;
+	padding: 20px;
+	border: 1px solid red;
+	border-radius: 20px;
 }
 
 .strike {
