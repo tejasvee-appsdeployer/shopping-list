@@ -1,4 +1,5 @@
 import "./App.css";
+import Header from "./components/Header";
 import ListView from "./components/ListView";
 
 const data = [
@@ -32,9 +33,12 @@ const data = [
 function App() {
 	return (
 		<div className="App">
-			<ListView className="list-item" data={data} heading={"Yesterday's"} />
-			<ListView className="list-item" data={data} heading={"Today's"} />
-			<ListView className="list-item" data={data} heading={"Tommorow's"} />
+			<Header heading={""} />
+			<div className="list-view">
+				<ListView data={data} heading={"Yesterday's"} />
+				<ListView data={data} heading={"Today's"} />
+				<ListView data={data} heading={"Tommorow's"} />
+			</div>
 		</div>
 	);
 }
