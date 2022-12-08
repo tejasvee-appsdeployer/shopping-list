@@ -109,10 +109,25 @@ const data = [
 function App() {
 	const [todolist, setTodolist] = useState(data);
 
+	const handleToggle = (id) => {
+		let mapped = todolist.map((task) => {
+			return task.id === id
+				? { ...task, complete: !task.complete }
+				: { ...task };
+		});
+		setTodolist(mapped);
+	};
+	const handleFilter = (id) => {
+		let filtered = todolist.filter((task) => {
+			return !task.complete;
+		});
+		setTodolist(filtered);
+	};
+
 	return (
 		<div className="App">
 			<Header />
-			<ToDoList list={todolist} />
+			<ToDoList list={todolist} handleFilter={handleFilter} handleToggle />
 		</div>
 	);
 }

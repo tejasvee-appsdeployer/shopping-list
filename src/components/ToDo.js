@@ -1,4 +1,8 @@
-const ToDo = ({ todo }) => {
-	return <div className={todo.complete ? "strike" : ""}>{todo.task}</div>;
+const ToDo = ({ todo, handleToggle, handleFilter }) => {
+	return (
+		<div className={todo.complete ? "strike" : ""} onClick={handleToggle}>
+			{todo.task}
+		</div>
+	);
 };
 export default ToDo;
