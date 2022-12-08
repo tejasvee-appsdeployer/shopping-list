@@ -7,7 +7,7 @@ const TodoForm = ({ addTask }) => {
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addTask(userInput);
+		if (userInput.length > 1) addTask(userInput);
 		setUserInput("");
 	};
 
