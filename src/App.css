@@ -1,5 +1,5 @@
 .App {
-	width: 40%;
+	width: 30%;
 	height: 90%;
 	position: absolute;
 	top: 50%;
@@ -16,7 +16,7 @@
 	flex-wrap: nowrap;
 	overflow-x: scroll !important;
 	overflow-y: hidden;
-	padding: 0px 20px 20px 10px;
+	padding: 0px 0px 0px 0px;
 }
 
 .days::-webkit-scrollbar {
@@ -31,6 +31,10 @@
 	border-radius: 50%;
 	text-align: center;
 	background-color: cadetblue;
+}
+
+.selected-day {
+	background-color: gold;
 }
 
 .list-view {
