@@ -2,36 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const data = [
-	{
-		id: 1,
-		task: "Give dog a bath",
-		complete: false,
-	},
-	{
-		id: 2,
-		task: "Do laundry",
-		complete: false,
-	},
-	{
-		id: 3,
-		task: "Vacuum floor",
-		complete: false,
-	},
-	{
-		id: 4,
-		task: "Feed cat",
-		complete: false,
-	},
-	{
-		id: 5,
-		task: "Change light bulbs",
-		complete: false,
-	},
-];
-
 const NewHeader = () => {
-	const [presentDate, setPresentDate] = useState();
+	const [presentDate, setPresentDate] = useState(new Date());
 	const date = new Date();
 	const month = date.getMonth();
 	const days = [];
@@ -40,7 +12,9 @@ const NewHeader = () => {
 		date.setDate(date.getDate() + 1);
 	}
 	const handleDateClick = (e) => {
-		setPresentDate(new Date(date.getFullYear(), month, e.currentTarget.id));
+		setPresentDate(
+			new Date(presentDate.getFullYear(), month, e.currentTarget.id)
+		);
 	};
 	return (
 		<div className="header">
@@ -64,12 +38,6 @@ const NewHeader = () => {
 function App() {
 	return (
 		<div className="App">
-			{/* <Header heading={""} />
-			<div className="list-view">
-				<ListView data={data} heading={"Today's"} />
-				<ListView data={data} heading={"Yesterday's"} />
-				<ListView data={data} heading={"Tommorow's"} />
-			</div> */}
 			<NewHeader />
 		</div>
 	);
