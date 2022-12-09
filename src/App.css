@@ -1,6 +1,30 @@
 .App {
-	text-align: center;
+	width: 40%;
+	height: 90%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid red;
 }
+
+.days {
+	display: flex;
+	list-style: none;
+	flex-wrap: nowrap;
+	overflow: scroll;
+	padding: 0px 20px 20px 10px;
+}
+.days > li {
+	margin: 10px;
+	min-width: 50px;
+	min-height: 50px;
+	line-height: 50px;
+	border-radius: 50%;
+	text-align: center;
+	background-color: cadetblue;
+}
+
 .list-view {
 	text-align: center;
 	display: flex;

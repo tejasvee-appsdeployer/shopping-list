@@ -1,6 +1,6 @@
+import { useState } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import ListView from "./components/ListView";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const data = [
 	{
@@ -30,15 +30,47 @@ const data = [
 	},
 ];
 
+const NewHeader = () => {
+	const [presentDate, setPresentDate] = useState();
+	const date = new Date();
+	const month = date.getMonth();
+	const days = [];
+	while (date.getMonth() === month) {
+		days.push(new Date(date).getDate());
+		date.setDate(date.getDate() + 1);
+	}
+	const handleDateClick = (e) => {
+		setPresentDate(new Date(date.getFullYear(), month, e.currentTarget.id));
+	};
+	return (
+		<div className="header">
+			<h1 className="container">Shop List</h1>
+			<p className="container">Date: {presentDate.toDateString()}</p>
+			<div>
+				<ul className="days">
+					{days.map((day, index) => {
+						return (
+							<li id={day} key={index} className="" onClick={handleDateClick}>
+								{day}
+							</li>
+						);
+					})}
+				</ul>
+			</div>
+		</div>
+	);
+};
+
 function App() {
 	return (
 		<div className="App">
-			<Header heading={""} />
+			{/* <Header heading={""} />
 			<div className="list-view">
-				<ListView data={data} heading={"Yesterday's"} />
 				<ListView data={data} heading={"Today's"} />
+				<ListView data={data} heading={"Yesterday's"} />
 				<ListView data={data} heading={"Tommorow's"} />
-			</div>
+			</div> */}
+			<NewHeader />
 		</div>
 	);
 }
