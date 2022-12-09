@@ -21,9 +21,22 @@ function Lists() {
 
 	return (
 		<div className="container mt-4">
-			<div className="container">
-				<input type="text" onChange={handleInputItem} value={userInput} />
-				<button type="submit" onClick={addItem}>
+			<div className="input-group mb-3">
+				<input
+					type="text"
+					className="form-control"
+					placeholder="Add Item to Cart"
+					aria-label=""
+					aria-describedby="button-addon2"
+					onChange={handleInputItem}
+					value={userInput}
+				/>
+				<button
+					className="btn btn-primary"
+					type="button"
+					id="button-addon2"
+					onClick={addItem}
+				>
 					Add
 				</button>
 			</div>
