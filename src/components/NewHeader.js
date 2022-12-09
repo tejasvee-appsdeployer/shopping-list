@@ -10,8 +10,7 @@ const getDays = () => {
 	return days;
 };
 
-const NewHeader = () => {
-	const [presentDate, setPresentDate] = useState(new Date());
+const NewHeader = ({ presentDate, setPresentDate }) => {
 	const month = presentDate.getMonth();
 	const days = getDays();
 	const handleDateClick = (e) => {
@@ -20,7 +19,7 @@ const NewHeader = () => {
 		);
 	};
 	return (
-		<div className="header">
+		<div className="header container-fluid">
 			<h1 className="container">Shop List</h1>
 			<p className="container">Date: {presentDate.toDateString()}</p>
 			<div>
