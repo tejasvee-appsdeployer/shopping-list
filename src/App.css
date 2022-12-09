@@ -7,16 +7,23 @@
 	transform: translate(-50%, -50%);
 	border: 1px solid red;
 	border-radius: 25px;
+	overflow: hidden;
 }
 
 .days {
 	display: flex;
 	list-style: none;
 	flex-wrap: nowrap;
-	overflow: scroll;
+	overflow-x: scroll !important;
+	overflow-y: hidden;
 	padding: 0px 20px 20px 10px;
 }
-.days > li {
+
+.days::-webkit-scrollbar {
+	display: none;
+}
+
+.day {
 	margin: 10px;
 	min-width: 50px;
 	min-height: 50px;
