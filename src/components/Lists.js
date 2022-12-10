@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 
-function Lists() {
-	const [items, setItems] = useState([
-		"buy apples",
-		"buy radio",
-		"clear garage",
-	]);
-
+function Lists({ items, setItems, presentDate }) {
 	const [userInput, setUserInput] = useState("");
 
 	const handleInputItem = (e) => {
@@ -15,7 +9,12 @@ function Lists() {
 	};
 
 	const addItem = () => {
-		setItems([...items, userInput]);
+		const newItem = {
+			name: userInput,
+			done: false,
+			date: presentDate,
+		};
+		setItems([...items, newItem]);
 		setUserInput("");
 	};
 
@@ -41,23 +40,25 @@ function Lists() {
 				</button>
 			</div>
 			<ol>
-				{items.map((item, index) => {
-					return (
-						<div className="input-group mb-3" key={index}>
-							<div className="input-group-text">
-								<input
-									className="form-check-input mt-0"
-									type="checkbox"
-									id={item}
-									value=""
-								/>
-							</div>
-							<div className="form-control" id="item-input" disabled>
-								{item}
-							</div>
-						</div>
-					);
-				})}
+				{items
+					.filter((item) => item.date.getDay() === presentDate.getDay())
+					.map((item) => {
+						return (
+							<li className="input-group mb-3" key={item.name}>
+								<div className="input-group-text">
+									<input
+										className="form-check-input mt-0"
+										type="checkbox"
+										id={item.name}
+										defaultChecked={item.done}
+									/>
+								</div>
+								<div className="form-control" id="item-input" disabled>
+									{item.name}
+								</div>
+							</li>
+						);
+					})}
 			</ol>
 		</div>
 	);

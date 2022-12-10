@@ -6,10 +6,13 @@ import { useState } from "react";
 
 function App() {
 	const [presentDate, setPresentDate] = useState(new Date());
+	const [items, setItems] = useState([
+		{ name: "Apples", done: false, date: presentDate },
+	]);
 	return (
 		<div className="App container">
 			<NewHeader presentDate={presentDate} setPresentDate={setPresentDate} />
-			<Lists />
+			<Lists items={items} setItems={setItems} presentDate={presentDate} />
 		</div>
 	);
 }
